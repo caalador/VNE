@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * * @author Mikael Grankvist - Vaadin }>
  */
-public class ImageLoader  implements EventListener {
+public class ImageLoader implements EventListener {
 
     ImageElement image = DOM.createImg().cast();
 
@@ -35,10 +35,6 @@ public class ImageLoader  implements EventListener {
     public void start(String url) {
         this.url = url;
         image.setSrc(url);
-    }
-
-    public boolean imageEquals(ImageElement image) {
-        return this.image == image;
     }
 
     public boolean urlEquals(String url) {

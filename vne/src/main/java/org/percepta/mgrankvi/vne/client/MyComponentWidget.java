@@ -4,11 +4,11 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Label;
 import com.vaadin.client.Util;
 import org.percepta.mgrankvi.vne.client.preloader.image.ImageLoadEvent;
-import org.percepta.mgrankvi.vne.client.preloader.image.ImageLoadListener;
+import org.percepta.mgrankvi.vne.client.preloader.image.ImageLoadHandler;
 import org.percepta.mgrankvi.vne.client.preloader.image.ImagePreloader;
 
 // Extend any GWT Widget
-public class MyComponentWidget extends Label implements ImageLoadListener {
+public class MyComponentWidget extends Label implements ImageLoadHandler {
 
     ImagePreloader preloader = new ImagePreloader();
     int loaded = 0;

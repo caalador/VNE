@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class ImagePreloader implements ImageLoadHandler {
 
-    private List<ImageLoadListener> listeners = new LinkedList<ImageLoadListener>();
+    private List<ImageLoadHandler> listeners = new LinkedList<ImageLoadHandler>();
 
     private List<ImageLoader> activeLoaders = new LinkedList<ImageLoader>();
     private static Map<String, Size> imageSizeCache = new HashMap<String, Size>();
@@ -66,28 +66,18 @@ public class ImagePreloader implements ImageLoadHandler {
 
     }
 
-    public void addImageLoadListener(ImageLoadListener listener) {
+    public void addImageLoadListener(ImageLoadHandler listener) {
         listeners.add(listener);
     }
 
-    public boolean removeImageLoadListener(ImageLoadListener listener) {
+    public boolean removeImageLoadListener(ImageLoadHandler listener) {
         return listeners.remove(listener);
     }
 
     private void fireEvent(ImageLoadEvent event) {
-        for (ImageLoadListener listener : listeners) {
+        for (ImageLoadHandler listener : listeners) {
             listener.imageLoaded(event);
         }
-    }
-
-
-    private ImageLoader findImageInPool(ImageElement image) {
-        for (ImageLoader loader : activeLoaders) {
-            if (loader.imageEquals(image)) {
-                return loader;
-            }
-        }
-        return null;
     }
 
     private int findUrlInPool(String url) {
