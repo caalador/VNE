@@ -5,6 +5,7 @@ package org.percepta.mgrankvi.vne.client.preloader.image;
  */
 public class ImageLoadEvent {
 
+    private ImageLoader target;
     private boolean success;
     private String file;
     private Size size;
@@ -13,6 +14,21 @@ public class ImageLoadEvent {
         this.file = file;
         this.size = size;
         this.success = success;
+    }
+
+    public ImageLoadEvent(ImageLoader target, String file, Size size, boolean success) {
+        this.target = target;
+        this.file = file;
+        this.size = size;
+        this.success = success;
+    }
+
+    public ImageLoader getTarget() {
+        return target;
+    }
+
+    public void setTarget(ImageLoader target) {
+        this.target = target;
     }
 
     public boolean isSuccess() {

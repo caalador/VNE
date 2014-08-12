@@ -3,3 +3,5 @@ vne/target
 vne-root.iml
 vne/vne.iml
 vne-demo.iml
+vne-demo/src/main/webapp/VAADIN/widgetsets
+vne-demo/target

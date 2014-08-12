@@ -5,8 +5,7 @@ import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.EventListener;
+import com.vaadin.client.VConsole;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -16,7 +15,7 @@ import java.util.Map;
 /**
  * * @author Mikael Grankvist - Vaadin }>
  */
-public class ImagePreloader implements EventListener {
+public class ImagePreloader implements ImageLoadHandler {
 
     private List<ImageLoadListener> listeners = new LinkedList<ImageLoadListener>();
 
@@ -46,14 +45,14 @@ public class ImagePreloader implements EventListener {
         }
 
         if (imageSizeCache.containsKey(url)) {
-                Size cachedDimensions = imageSizeCache.get(url);
-                if (cachedDimensions.getWidth() == -1) {
-                    // org.percepta.mgrankvi.vne.client.preloader.image load failed
-                    fireEvent(new ImageLoadEvent(url, null, false));
-                }else {
-                    // org.percepta.mgrankvi.vne.client.preloader.image load succeeded
-                    fireEvent(new ImageLoadEvent(url, cachedDimensions, true));
-                }
+            Size cachedDimensions = imageSizeCache.get(url);
+            if (cachedDimensions.getWidth() == -1) {
+                // image load failed
+                fireEvent(new ImageLoadEvent(url, null, false));
+            } else {
+                // image load succeeded
+                fireEvent(new ImageLoadEvent(url, cachedDimensions, true));
+            }
             return;
         } else {
             int index = findUrlInPool(url);
@@ -62,8 +61,7 @@ public class ImagePreloader implements EventListener {
             }
         }
 
-        ImageLoader img = new ImageLoader(loadingArea);
-
+        ImageLoader img = new ImageLoader(loadingArea, this);
         img.start(url);
 
     }
@@ -101,27 +99,14 @@ public class ImagePreloader implements EventListener {
         return -1;
     }
 
-
     @Override
-    public void onBrowserEvent(Event event) {
-        boolean success;
-        if (Event.ONLOAD == event.getTypeInt()) {
-            success = true;
-        } else if (Event.ONERROR == event.getTypeInt()) {
-            success = false;
-        } else {
-            return;
-        }
+    public void imageLoaded(ImageLoadEvent event) {
 
-        if (!ImageElement.is(event.getCurrentEventTarget()))
-            return;
+        boolean success = event.isSuccess();
 
-        ImageElement image = ImageElement.as(Element.as(event.getCurrentEventTarget()));
-        ImageLoader loader = findImageInPool(image);
+        ImageLoader loader = event.getTarget();
 
-        if (loader == null) {
-            return;
-        }
+        ImageElement image = loader.getElement();
 
         Size imageSize = null;
         if (success) {
@@ -135,5 +120,6 @@ public class ImagePreloader implements EventListener {
         activeLoaders.remove(loader);
 
         fireEvent(new ImageLoadEvent(image.getSrc(), imageSize, success));
+
     }
 }

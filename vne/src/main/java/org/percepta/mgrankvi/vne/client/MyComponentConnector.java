@@ -74,6 +74,10 @@ public class MyComponentConnector extends AbstractComponentConnector {
 		// State is directly readable in the client after it is set in server
 		final String text = getState().text;
 		getWidget().setText(text);
+
+        for(String url : getState().urls){
+            getWidget().preload(url);
+        }
 	}
 
 }
