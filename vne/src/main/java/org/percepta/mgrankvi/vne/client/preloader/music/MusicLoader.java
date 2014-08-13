@@ -17,6 +17,7 @@ public class MusicLoader implements EventListener, CanPlayThroughHandler {
     AudioElement element;
     Audio audio;
     MusicLoadHandler handler;
+    String src;
 
     public MusicLoader(Element loadingArea, MusicLoadHandler handler) {
         this.handler = handler;
@@ -31,7 +32,14 @@ public class MusicLoader implements EventListener, CanPlayThroughHandler {
         }
     }
 
-    public void loadAudio(String url) {
+    /**
+     * Starts load of audio file. Returns false if no <audio></audio> could be created or no type could be played.
+     *
+     * @param url
+     * @return
+     */
+    public boolean loadAudio(String url) {
+        src = url;
         String type = ".mp3";
         if (audio != null) {
             if (MediaElement.CAN_PLAY_PROBABLY.equals(audio.canPlayType(AudioElement.TYPE_OGG))) {
@@ -46,14 +54,15 @@ public class MusicLoader implements EventListener, CanPlayThroughHandler {
                 type = ".mp3";
             } else if (MediaElement.CAN_PLAY_MAYBE.equals(audio.canPlayType(AudioElement.TYPE_WAV))) {
                 type = ".wav";
-            }else{
-                return;
+            } else {
+                return false;
             }
             VConsole.log("Using audio type: " + type);
             audio.setSrc(url + type);
             audio.load();
-
+            return true;
         }
+        return false;
     }
 
     @Override
@@ -64,13 +73,15 @@ public class MusicLoader implements EventListener, CanPlayThroughHandler {
 //            handler.musicLoaded(new MusicLoadEvent(audio, audio.getSrc(), false));
 //        }
         if (event.getType().equals("canplaythrough")) {
-            handler.musicLoaded(new MusicLoadEvent(audio, audio.getSrc(), true));
+            handler.musicLoaded(new MusicLoadEvent(audio, src, true));
+        } else if(event.getType().equals("error")){
+            handler.musicLoaded(new MusicLoadEvent(audio, src, false));
         }
     }
 
     @Override
     public void onCanPlayThrough(CanPlayThroughEvent event) {
         VConsole.log(" -- Can play through!!");
-        handler.musicLoaded(new MusicLoadEvent(audio, audio.getSrc(), true));
+        handler.musicLoaded(new MusicLoadEvent(audio, src, true));
     }
 }

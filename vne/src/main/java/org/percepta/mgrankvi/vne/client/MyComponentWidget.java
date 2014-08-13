@@ -61,8 +61,8 @@ public class MyComponentWidget extends Label implements ImageLoadHandler, MusicL
     public void musicLoaded(MusicLoadEvent event) {
         if(event.isSuccess()){
             musicLoaded++;
-            event.getTarget().play();
-            final Audio audio = event.getTarget();
+            event.getAudio().play();
+            final Audio audio = event.getAudio();
             final double duration = audio.getDuration();
             Timer t = new Timer(){
 

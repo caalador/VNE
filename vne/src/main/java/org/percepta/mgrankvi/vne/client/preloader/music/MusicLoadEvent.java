@@ -8,27 +8,42 @@ import com.google.gwt.media.client.Audio;
 public class MusicLoadEvent {
 
 
-    private Audio target;
+    private MusicLoader loader;
+    private Audio audio;
     private boolean success;
     private String file;
 
-    public MusicLoadEvent(String file, boolean success) {
+//    public MusicLoadEvent(String file, boolean success) {
+//        this.file = file;
+//        this.success = success;
+//    }
+
+    public MusicLoadEvent(MusicLoader loader, Audio audio, String file, boolean success) {
+        this.loader = loader;
+        this.audio = audio;
+        this.file = file;
+        this.success = success;
+    }
+    public MusicLoadEvent(Audio audio, String file, boolean success) {
+        this.audio = audio;
         this.file = file;
         this.success = success;
     }
 
-    public MusicLoadEvent(Audio target, String file, boolean success) {
-        this.target = target;
-        this.file = file;
-        this.success = success;
+    protected MusicLoader getLoader() {
+        return loader;
     }
 
-    public Audio getTarget() {
-        return target;
+    protected void setLoader(MusicLoader loader) {
+        this.loader = loader;
     }
 
-    public void setTarget(Audio target) {
-        this.target = target;
+    public Audio getAudio() {
+        return audio;
+    }
+
+    public void setAudio(Audio audio) {
+        this.audio = audio;
     }
 
     public boolean isSuccess() {
