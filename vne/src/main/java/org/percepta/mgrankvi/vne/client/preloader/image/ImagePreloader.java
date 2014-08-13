@@ -62,6 +62,7 @@ public class ImagePreloader implements ImageLoadHandler {
         }
 
         ImageLoader img = new ImageLoader(loadingArea, this);
+        activeLoaders.add(img);
         img.start(url);
 
     }
