@@ -41,6 +41,16 @@ public class MyComponent extends com.vaadin.ui.AbstractComponent {
         getState().urls.addAll(Arrays.asList(images));
     }
 
+    /**
+     * Paths to music files to load: note should not have .mp3 or other file ends as
+     * it is taken as supported by browser.
+     *
+     * @param musicFiles
+     */
+    public void setMusicToLoad(String... musicFiles) {
+        getState().music.addAll(Arrays.asList(musicFiles));
+    }
+
     @Override
     public MyComponentState getState() {
         return (MyComponentState) super.getState();

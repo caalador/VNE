@@ -8,5 +8,6 @@ public class MyComponentState extends com.vaadin.shared.AbstractComponentState {
 	// State can have both public variable and bean properties
 	public String text = "MyComponent";
     public List<String> urls = new LinkedList<String>();
+    public List<String> music = new LinkedList<String>();
 
 }

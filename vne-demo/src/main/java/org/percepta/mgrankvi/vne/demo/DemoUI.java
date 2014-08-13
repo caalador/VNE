@@ -30,6 +30,7 @@ public class DemoUI extends UI
         // Initialize our new UI component
         final MyComponent component = new MyComponent();
 component.setImagesToLoad("image/mgs_a.jpg","image/mgs_b.jpg","image/mgs_c.jpg");
+        component.setMusicToLoad("music/Kai");
         // Show it in the middle of the screen
         final VerticalLayout layout = new VerticalLayout();
         layout.setStyleName("demoContentLayout");

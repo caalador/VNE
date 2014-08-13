@@ -34,16 +34,16 @@ public class MyComponentConnector extends AbstractComponentConnector {
 		});
 
 		// We choose listed for mouse clicks for the widget
-		getWidget().addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				final MouseEventDetails mouseDetails = MouseEventDetailsBuilder
-						.buildMouseEventDetails(event.getNativeEvent(),
-								getWidget().getElement());
-				
-				// When the widget is clicked, the event is sent to server with ServerRpc
-				rpc.clicked(mouseDetails);
-			}
-		});
+//		getWidget().addClickHandler(new ClickHandler() {
+//			public void onClick(ClickEvent event) {
+//				final MouseEventDetails mouseDetails = MouseEventDetailsBuilder
+//						.buildMouseEventDetails(event.getNativeEvent(),
+//								getWidget().getElement());
+//
+//				// When the widget is clicked, the event is sent to server with ServerRpc
+//				rpc.clicked(mouseDetails);
+//			}
+//		});
 
 	}
 
@@ -76,7 +76,11 @@ public class MyComponentConnector extends AbstractComponentConnector {
 		getWidget().setText(text);
 
         for(String url : getState().urls){
-            getWidget().preload(url);
+            getWidget().preloadImage(url);
+        }
+
+        for(String url : getState().music){
+            getWidget().preloadMusic(url);
         }
 	}
 
