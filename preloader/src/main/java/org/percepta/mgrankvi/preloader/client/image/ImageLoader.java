@@ -1,14 +1,10 @@
-package org.percepta.mgrankvi.vne.client.preloader.image;
+package org.percepta.mgrankvi.preloader.client.image;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.EventListener;
-import com.vaadin.client.VConsole;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * * @author Mikael Grankvist - Vaadin }>

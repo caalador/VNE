@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.percepta.mgrankvi.vne</groupId>
-	<artifactId>vne</artifactId>
+	<artifactId>preloader</artifactId>
 	<packaging>jar</packaging>
 	<version>0.1-SNAPSHOT</version>
 	<name>MyComponent Add-on</name>
@@ -91,13 +91,7 @@
 			<version>${vaadin.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
-        <dependency>
-            <groupId>org.percepta.mgrankvi.vne</groupId>
-            <artifactId>preloader</artifactId>
-            <version>${version}</version>
-        </dependency>
-
+		
 		<!-- This can be replaced with TestNG or some other test framework supported by the surefire plugin -->
 		<dependency>
 			<groupId>junit</groupId>

@@ -1,4 +1,4 @@
-package org.percepta.mgrankvi.vne.client.preloader.music;
+package org.percepta.mgrankvi.preloader.client.music;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style;

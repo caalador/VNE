@@ -5,12 +5,13 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Label;
 import com.vaadin.client.Util;
-import org.percepta.mgrankvi.vne.client.preloader.image.ImageLoadEvent;
-import org.percepta.mgrankvi.vne.client.preloader.image.ImageLoadHandler;
-import org.percepta.mgrankvi.vne.client.preloader.image.ImagePreloader;
-import org.percepta.mgrankvi.vne.client.preloader.music.MusicLoadEvent;
-import org.percepta.mgrankvi.vne.client.preloader.music.MusicLoadHandler;
-import org.percepta.mgrankvi.vne.client.preloader.music.MusicPreloader;
+import org.percepta.mgrankvi.preloader.client.image.ImageLoadEvent;
+import org.percepta.mgrankvi.preloader.client.image.ImageLoadHandler;
+import org.percepta.mgrankvi.preloader.client.image.ImagePreloader;
+import org.percepta.mgrankvi.preloader.client.music.MusicLoadEvent;
+import org.percepta.mgrankvi.preloader.client.music.MusicLoadHandler;
+import org.percepta.mgrankvi.preloader.client.music.MusicPreloader;
+
 
 // Extend any GWT Widget
 public class MyComponentWidget extends Label implements ImageLoadHandler, MusicLoadHandler {

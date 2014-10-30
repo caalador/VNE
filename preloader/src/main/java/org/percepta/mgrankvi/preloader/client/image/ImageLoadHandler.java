@@ -1,4 +1,4 @@
-package org.percepta.mgrankvi.vne.client.preloader.image;
+package org.percepta.mgrankvi.preloader.client.image;
 
 /**
  * * @author Mikael Grankvist - Vaadin }>

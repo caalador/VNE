@@ -1,11 +1,10 @@
-package org.percepta.mgrankvi.vne.client.preloader.image;
+package org.percepta.mgrankvi.preloader.client.image;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
-import com.vaadin.client.VConsole;
 
 import java.util.HashMap;
 import java.util.LinkedList;

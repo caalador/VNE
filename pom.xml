@@ -11,6 +11,7 @@
 	<modules>
 		<module>vne</module>
 		<module>vne-demo</module>
+		<module>preloader</module>
 	</modules>
 
 </project>
