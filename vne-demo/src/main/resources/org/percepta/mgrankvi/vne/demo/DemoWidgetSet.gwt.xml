@@ -35,4 +35,6 @@
     
 
     <inherits name="org.percepta.mgrankvi.vne.WidgetSet" />
+
+    <inherits name="org.percepta.mgrankvi.preloader.WidgetSet" />
 </module>

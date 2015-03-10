@@ -75,8 +75,10 @@ public class MusicLoader implements EventListener, CanPlayThroughHandler {
 //        }
         if (event.getType().equals("canplaythrough")) {
             handler.musicLoaded(new MusicLoadEvent(audio, src, true));
+            audio.removeFromParent();
         } else if(event.getType().equals("error")){
             handler.musicLoaded(new MusicLoadEvent(audio, src, false));
+            audio.removeFromParent();
         }
     }
 
@@ -84,5 +86,6 @@ public class MusicLoader implements EventListener, CanPlayThroughHandler {
     public void onCanPlayThrough(CanPlayThroughEvent event) {
         VConsole.log(" -- Can play through!!");
         handler.musicLoaded(new MusicLoadEvent(audio, src, true));
+        audio.removeFromParent();
     }
 }

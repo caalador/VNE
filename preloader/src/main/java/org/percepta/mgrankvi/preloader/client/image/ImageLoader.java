@@ -60,8 +60,10 @@ public class ImageLoader implements EventListener {
     public void onBrowserEvent(Event event) {
         if (Event.ONLOAD == event.getTypeInt()) {
             handler.imageLoaded(new ImageLoadEvent(this, url, null, true));
+            image.removeFromParent();
         } else if (Event.ONERROR == event.getTypeInt()) {
             handler.imageLoaded(new ImageLoadEvent(this, url, null, false));
+            image.removeFromParent();
         }
     }
 }
