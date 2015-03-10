@@ -1,7 +1,9 @@
 package org.percepta.mgrankvi.preloader.client.image;
 
 /**
- * * @author Mikael Grankvist - Vaadin }>
+ * Image load event
+ *
+ * @author Mikael Grankvist - Vaadin }>
  */
 public class ImageLoadEvent {
 

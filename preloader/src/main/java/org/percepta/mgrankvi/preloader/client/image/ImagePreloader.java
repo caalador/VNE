@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * * @author Mikael Grankvist - Vaadin }>
+ * Preloader for loading image files into browser
+ *
+ * @author Mikael Grankvist - Vaadin }>
  */
 public class ImagePreloader implements ImageLoadHandler {
 
@@ -35,6 +37,9 @@ public class ImagePreloader implements ImageLoadHandler {
         Document.get().getBody().appendChild(loadingArea);
     }
 
+    /**
+     * Preload image @ given url
+     */
     public void preloadImage(String url) {
 
         if (url == null) {
@@ -66,10 +71,16 @@ public class ImagePreloader implements ImageLoadHandler {
 
     }
 
+    /**
+     * Add image load handler
+     */
     public void addImageLoadListener(ImageLoadHandler listener) {
         listeners.add(listener);
     }
 
+    /**
+     * Remove a added image load handler
+     */
     public boolean removeImageLoadListener(ImageLoadHandler listener) {
         return listeners.remove(listener);
     }

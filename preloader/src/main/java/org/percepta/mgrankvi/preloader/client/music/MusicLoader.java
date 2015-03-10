@@ -11,7 +11,8 @@ import com.google.gwt.user.client.EventListener;
 import com.vaadin.client.VConsole;
 
 /**
- * * @author Mikael Grankvist - Vaadin }>
+ * Music loader that loads audio file to browser.
+ * @author Mikael Grankvist - Vaadin }>
  */
 public class MusicLoader implements EventListener, CanPlayThroughHandler {
     AudioElement element;

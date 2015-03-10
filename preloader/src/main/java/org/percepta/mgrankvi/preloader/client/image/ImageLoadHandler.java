@@ -1,7 +1,9 @@
 package org.percepta.mgrankvi.preloader.client.image;
 
 /**
- * * @author Mikael Grankvist - Vaadin }>
+ * Image load handler interface
+ *
+ * @author Mikael Grankvist - Vaadin }>
  */
 public interface ImageLoadHandler {
 

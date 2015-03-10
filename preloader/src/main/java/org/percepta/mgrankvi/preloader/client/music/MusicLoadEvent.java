@@ -3,20 +3,16 @@ package org.percepta.mgrankvi.preloader.client.music;
 import com.google.gwt.media.client.Audio;
 
 /**
- * * @author Mikael Grankvist - Vaadin }>
+ * Audio load event
+ *
+ * @author Mikael Grankvist - Vaadin }>
  */
 public class MusicLoadEvent {
-
 
     private MusicLoader loader;
     private Audio audio;
     private boolean success;
     private String file;
-
-//    public MusicLoadEvent(String file, boolean success) {
-//        this.file = file;
-//        this.success = success;
-//    }
 
     public MusicLoadEvent(MusicLoader loader, Audio audio, String file, boolean success) {
         this.loader = loader;

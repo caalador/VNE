@@ -5,8 +5,8 @@
 	<groupId>org.percepta.mgrankvi.vne</groupId>
 	<artifactId>preloader</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1-SNAPSHOT</version>
-	<name>MyComponent Add-on</name>
+	<version>0.1.0</version>
+	<name>Preloader</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

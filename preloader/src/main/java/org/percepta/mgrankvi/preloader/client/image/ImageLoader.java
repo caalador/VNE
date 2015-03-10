@@ -7,7 +7,9 @@ import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.EventListener;
 
 /**
- * * @author Mikael Grankvist - Vaadin }>
+ * Image loader
+ *
+ * @author Mikael Grankvist - Vaadin }>
  */
 public class ImageLoader implements EventListener {
 
@@ -17,6 +19,12 @@ public class ImageLoader implements EventListener {
 
     String url;
 
+    /**
+     * Create a image loader
+     *
+     * @param loadingArea Element to use for loading
+     * @param handler     Callback handler
+     */
     public ImageLoader(Element loadingArea, ImageLoadHandler handler) {
         this.handler = handler;
         Event.sinkEvents(image, Event.ONLOAD | Event.ONERROR);
@@ -24,15 +32,26 @@ public class ImageLoader implements EventListener {
         loadingArea.appendChild(image);
     }
 
-    public ImageElement getElement(){
+    public ImageElement getElement() {
         return image;
     }
 
+    /**
+     * Begin loading image from url
+     *
+     * @param url image url
+     */
     public void start(String url) {
         this.url = url;
         image.setSrc(url);
     }
 
+    /**
+     * See if this loader handles given url.
+     *
+     * @param url image url
+     * @return url for this loader
+     */
     public boolean urlEquals(String url) {
         return this.url.equals(url);
     }

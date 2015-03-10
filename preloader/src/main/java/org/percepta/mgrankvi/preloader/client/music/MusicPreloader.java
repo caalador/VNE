@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * * @author Mikael Grankvist - Vaadin }>
+ * Preloader for loading audio files into browser
+ *
+ * @author Mikael Grankvist - Vaadin }>
  */
 public class MusicPreloader implements MusicLoadHandler {
 
@@ -34,6 +36,10 @@ public class MusicPreloader implements MusicLoadHandler {
         Document.get().getBody().appendChild(loadingArea);
     }
 
+    /**
+     * Request preloading of audio for given url.
+     * @param url
+     */
     public void preloadAudio(String url) {
         if (audioCache.containsKey(url)) {
             Audio audio = audioCache.get(url);
@@ -51,6 +57,11 @@ public class MusicPreloader implements MusicLoadHandler {
         }
     }
 
+    /**
+     * Check if given url is in the active load pool
+     * @param url Url to check
+     * @return Corresponding url is currently in the active load pool
+     */
     public boolean urlInPool(String url) {
         for (MusicLoader loader : activeLoaders) {
             if (loader.src.equals(url)) {
@@ -60,10 +71,19 @@ public class MusicPreloader implements MusicLoadHandler {
         return false;
     }
 
+    /**
+     * Add a load handler
+     * @param handler
+     */
     public void addMusicLoadHandler(MusicLoadHandler handler) {
         handlers.add(handler);
     }
 
+    /**
+     * Remove a load handler
+     * @param handler
+     * @return
+     */
     public boolean removeMusicLoadHandler(MusicLoadHandler handler) {
         return handlers.remove(handler);
     }

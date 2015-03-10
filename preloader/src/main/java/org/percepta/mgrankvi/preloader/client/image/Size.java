@@ -1,7 +1,7 @@
 package org.percepta.mgrankvi.preloader.client.image;
 
 /**
- * * @author Mikael Grankvist - Vaadin }>
+ * @author Mikael Grankvist - Vaadin }>
  */
 public class Size {
 
